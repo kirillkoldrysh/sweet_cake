@@ -4,11 +4,14 @@ a.disabled {
 }
 
 a:hover {
-    color: #15848F;
+    color: #a81400;
+    transition: color 0.2s;
 }
 
 a {
-    color: #1798A5;
+    font-size: 1.5em;
+    color: #d33d01;
+    transition: color 0.2s;
 }
 
 .side-nav li a:not(.button) {
@@ -319,16 +322,18 @@ pre {
 }
 
 .top-bar.expanded .title-area {
-    background: #01545b;
+    background: #6e1f00;
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #116d76;
+    background: #d33d01;
+    transition: background 0.5s;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-    background-color: #308e97;
-    background: #308e97;
+    background-color: #6e1f00;
+    background: #6e1f00;
+    transition: background 0.5s;
 }
 
 .side-nav li.heading {
@@ -363,19 +368,19 @@ table thead {
 }
 
 table tr {
-    border-bottom: 1px solid #ebebec;
+    border-bottom: 1px solid #ecebeb;
 }
 
 table thead tr {
-    border-bottom: 1px solid #1798A5;
+    border-bottom: 1px solid #d33d01;
 }
 
 table tr th {
     padding: 0.5625rem 0.625rem;
     font-size: 0.875rem;
-    color: #1798A5;
+    color: #551800;
     text-align: left;
-    border-bottom: 2px solid #1798A5;
+    border-bottom: 2px solid #d33d01;
 }
 
 table tr:nth-of-type(even) {
