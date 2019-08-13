@@ -11,4 +11,10 @@ class SongsController extends AppController
         $songs = $this->Paginator->paginate($this->Songs->find());
         $this->set(compact('songs'));
     }
+
+    public function view($slug = null)
+    {
+        $song = $this->Songs->findBySlug($slug)->firstOrFail();
+        $this->set(compact('song'));
+    }
 }
