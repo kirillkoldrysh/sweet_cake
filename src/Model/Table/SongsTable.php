@@ -4,6 +4,7 @@ namespace App\Model\Table;
 
 use Cake\ORM\Table;
 use Cake\Utility\Text;
+use Cake\Validation\Validator;
 
 class SongsTable extends Table
 {
@@ -19,5 +20,22 @@ class SongsTable extends Table
             // trim slug to maximum length defined in schema
             $entity->slug = substr($sluggedTitle, 0, 191);
         }
+    }
+
+    /**
+     * method tells CakePHP how to validate data
+     * when the save() method is called.
+     */
+    public function validationDefault(Validator $validator)
+    {
+        $validator
+            ->allowEmptyString('title', false)
+            ->minLength('title', 10)
+            ->maxLength('title', 255)
+
+            ->allowEmptyString('song_text', false)
+            ->minLength('song_text', 10);
+
+        return $validator;
     }
 }

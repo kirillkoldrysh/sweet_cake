@@ -63,4 +63,15 @@ class SongsController extends AppController
 
         $this->set('song', $song);
     }
+
+    public function delete($slug)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $song = $this->Songs->findBySlug($slug)->firstOrFail();
+        if ($this->Songs->delete($song)) {
+            $this->Flash->success(__('The {0} song has been deleted.', $song->title));
+            return $this->redirect(['action' => 'index']);
+        }
+    }
 }

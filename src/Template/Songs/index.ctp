@@ -21,6 +21,15 @@
         </td>
         <td>
             <?= $this->Html->link('Edit', ['action' => 'edit', $song->slug]) ?>
+
+            <!-- using Form->postLink() will create a link
+            that uses JavaScript to do a POST request deleting
+            the song -->
+            <?= $this->Form->postLink(
+                'Delete',
+                ['action' => 'delete', $song->slug],
+                ['confirm' => 'Are you sure?']) 
+            ?>
         </td>
     </tr>
     <?php endforeach; ?>
