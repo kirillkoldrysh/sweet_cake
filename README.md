@@ -52,4 +52,4 @@ custom styles.
 
 ## Database
 
-Here is using MySQL. Import base DB `sweet_cake.sql` from root folder.
+MySQL used here. You can import database `sweet_cake.sql` from root folder.
