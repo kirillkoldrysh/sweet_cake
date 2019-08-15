@@ -1,6 +1,7 @@
 <!-- File: src/Template/Songs/index.ctp -->
 
 <h1>Songs</h1>
+<?= $this->Html->link('Add Song', ['action' => 'add']) ?>
 <table>
     <tr>
         <th>Title</th>

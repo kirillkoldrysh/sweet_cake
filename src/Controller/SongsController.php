@@ -32,5 +32,20 @@ class SongsController extends AppController
     public function add()
     {
         $song = $this->Songs->newEntity();
+        if ($this->request->is('post')) {
+            
+            $song = $this->Songs->patchEntity($song, $this->request->getData());
+
+            // Hardcoding the singer_id is temporary, and will be removed later
+            // when we build authentication out.
+            $song->singer_id = 1;
+
+            if ($this->Songs->save($song)) {
+                $this->Flash->success(__('The song has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to add the song.'));
+        }
+        $this->set('song', $song);
     }
 }
