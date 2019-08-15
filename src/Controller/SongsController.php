@@ -48,4 +48,19 @@ class SongsController extends AppController
         }
         $this->set('song', $song);
     }
+
+    public function edit($slug)
+    {
+        $song = $this->Songs->findBySlug($slug)->firstOrFail();
+        if ($this->request->is(['post', 'put'])) {
+            $this->Songs->patchEntity($song, $this->request->getData());
+            if ($this->Songs->save($song)) {
+                $this->Flash->success(__('The song has been updated.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to update this song.'));
+        }
+
+        $this->set('song', $song);
+    }
 }
